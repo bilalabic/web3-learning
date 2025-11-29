@@ -2,7 +2,7 @@
 
 A simple, beginner-friendly guide to learning Sui Move programming in 21 days.
 
-## 🎯 How It Works
+## How It Works
 
 **Each day has its own folder** with everything you need:
 
@@ -17,7 +17,7 @@ Each day folder contains:
 - `Move.toml` - Move package configuration
 - `sources/main.move` - Your code file with TODO comments
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -42,7 +42,7 @@ sui move build
 sui move test
 ```
 
-## 📖 How to Use
+## How to Use
 
 1. **Start with Day 1**: Go to `day_01/` folder
 2. **Read the README**: Each day's README explains:
@@ -55,7 +55,7 @@ sui move test
 5. **Commit**: Commit your work
 6. **Move to next day**: Repeat for `day_02/`, `day_03/`, etc.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 21Challenge/
@@ -78,7 +78,7 @@ sui move test
         └── main.move
 ```
 
-## 🎯 Learning Goals
+## Learning Goals
 
 After completing this challenge, you'll understand:
 
@@ -90,7 +90,7 @@ After completing this challenge, you'll understand:
 - ✅ Events
 - ✅ Testing
 
-## 📝 Daily Workflow
+## Daily Workflow
 
 For each day:
 
@@ -99,12 +99,12 @@ For each day:
 3. **Test** (5 min) - Run `sui move test`
 4. **Commit** (1 min) - Commit your work
 
-## 🔗 Useful Links
+## Useful Links
 
 - [Move Book](https://move-book.com) - Main learning resource
 - [Sui Documentation](https://docs.sui.io) - Sui platform docs
 
-## ⚠️ Important Notes
+## Important Notes
 
 - **Work in the day's folder**: Each day is self-contained
 - **Read before coding**: Understanding concepts is crucial
@@ -113,11 +113,11 @@ For each day:
 - **Commit daily**: Track your progress
 - **Clean commits**: The `.gitignore` file is set up to exclude build artifacts - commit only your source code
 
-## 🎉 Success!
+🎉 Success!
 
 After 21 days, you'll have:
 - 21 working Move modules
 - Understanding of Sui Move fundamentals
 - Ability to build your own Move programs
 
-**Happy learning! 🚀**
+**Happy learning!**
