@@ -5,7 +5,6 @@
 
 module challenge::day_21_solution {
     use sui::object::{Self, UID};
-    use sui::transfer;
     use sui::event;
     use sui::tx_context::{TxContext, sender};
 
