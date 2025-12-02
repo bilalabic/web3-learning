@@ -4,11 +4,9 @@
 /// Students should complete main.move, not this file.
 
 module challenge::day_21_solution {
-    use sui::object::{Self, UID};
+   
     use sui::event;
-    use sui::tx_context::TxContext;
-    use sui::transfer;
-
+  
     #[test_only]
     use std::unit_test::assert_eq;
     #[test_only]
@@ -27,7 +25,7 @@ module challenge::day_21_solution {
         plots: vector<u8>,
     }
 
-    public fun new_counters(): FarmCounters {
+    fun new_counters(): FarmCounters {
         FarmCounters {
             planted: 0,
             harvested: 0,
@@ -35,7 +33,7 @@ module challenge::day_21_solution {
         }
     }
 
-    public fun plant(counters: &mut FarmCounters, plotId: u8) {
+    fun plant(counters: &mut FarmCounters, plotId: u8) {
         // Check if plotId is valid (between 1 and 20)
         assert!(plotId >= 1 && plotId <= (MAX_PLOTS as u8), E_INVALID_PLOT_ID);
         
@@ -55,7 +53,7 @@ module challenge::day_21_solution {
         vector::push_back(&mut counters.plots, plotId);
     }
 
-    public fun harvest(counters: &mut FarmCounters, plotId: u8) {
+    fun harvest(counters: &mut FarmCounters, plotId: u8) {
         let len = vector::length(&counters.plots);
                 
         // Check if plot exists in the vector and find its index
@@ -82,7 +80,7 @@ module challenge::day_21_solution {
         counters: FarmCounters,
     }
 
-    public fun new_farm(ctx: &mut TxContext): Farm {
+    fun new_farm(ctx: &mut TxContext): Farm {
         Farm {
             id: object::new(ctx),
             counters: new_counters(),
@@ -94,19 +92,19 @@ module challenge::day_21_solution {
         transfer::share_object(farm);
     }
 
-    public fun plant_on_farm(farm: &mut Farm, plotId: u8) {
+    fun plant_on_farm(farm: &mut Farm, plotId: u8) {
         plant(&mut farm.counters, plotId);
     }
 
-    public fun harvest_from_farm(farm: &mut Farm, plotId: u8) {
+    fun harvest_from_farm(farm: &mut Farm, plotId: u8) {
         harvest(&mut farm.counters, plotId);
     }
 
-    public fun total_planted(farm: &Farm): u64 {
+    fun total_planted(farm: &Farm): u64 {
         farm.counters.planted
     }
 
-    public fun total_harvested(farm: &Farm): u64 {
+    fun total_harvested(farm: &Farm): u64 {
         farm.counters.harvested
     }
 
