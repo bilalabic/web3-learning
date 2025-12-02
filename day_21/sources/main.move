@@ -9,10 +9,7 @@
 
 module challenge::day_21 {
     use sui::event;
- 
 
-    #[test_only]
-    use std::unit_test::assert_eq;
     // Note: test_scenario is available in Sui framework for testing
     // You'll need to import it when writing tests: use sui::test_scenario;
 
@@ -95,7 +92,7 @@ module challenge::day_21 {
 
     entry fun create_farm(ctx: &mut TxContext) {
         let farm = new_farm(ctx);
-        transfer::transfer(farm, ctx.sender());
+        transfer::share_object(farm);
     }
 
     public fun plant_on_farm(farm: &mut Farm, plotId: u8) {
@@ -133,23 +130,38 @@ module challenge::day_21 {
     // TODO: Write comprehensive tests:
     // 
     // Test 1: test_create_farm
-    // - Create a farm
+    // - Create a farm (shared object)
     // - Check initial counters are zero
+    // - Use test_scenario::take_shared to get the farm
     // 
     // Test 2: test_planting_increases_counter
-    // - Create farm, plant once
+    // - Create farm, plant plotId 1
     // - Verify planted counter is 1
+    // - Use test_scenario::take_shared and test_scenario::return_shared
     // 
     // Test 3: test_harvesting_increases_counter
-    // - Create farm, harvest once
-    // - Verify harvested counter is 1
+    // - Create farm, plant plotId 1, then harvest plotId 1
+    // - Verify both counters are 1
     // 
     // Test 4: test_multiple_operations
-    // - Plant 3 times, harvest 2 times
-    // - Verify both counters are correct
+    // - Plant plotIds 3, 5, 18 (in any order)
+    // - Harvest plotId 5
+    // - Verify planted counter is 3, harvested counter is 1
     // 
-    // Use test_scenario::begin, test_scenario::next_tx, etc.
-    // See day_17-19 for examples of test_scenario usage
+    // Test 5: test_invalid_plot_id
+    // - Try to plant plotId 0 or 21 (should abort)
+    // 
+    // Test 6: test_duplicate_plot
+    // - Plant plotId 1, then try to plant plotId 1 again (should abort)
+    // 
+    // Test 7: test_plot_limit
+    // - Try to plant 21 plots (should abort on the 21st)
+    // 
+    // Test 8: test_harvest_nonexistent_plot
+    // - Try to harvest a plot that doesn't exist (should abort)
+    // 
+    // Use test_scenario::begin, test_scenario::next_tx, test_scenario::take_shared, etc.
+    // Note: Since farm is a shared object, use test_scenario::take_shared instead of take_from_sender
 
     // TODO: Review all three projects (habit_tracker, bounty_board, farm_simulator)
     // Make sure function names are consistent
