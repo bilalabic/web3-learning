@@ -5,14 +5,15 @@
 
 module challenge::day_04_solution {
     use std::vector;
+    use std::string::String;
 
     // Copy the Habit struct from day_03
     public struct Habit has copy, drop {
-        name: vector<u8>,
+        name: String,
         completed: bool,
     }
 
-    public fun new_habit(name: vector<u8>): Habit {
+    public fun new_habit(name: String): Habit {
         Habit {
             name,
             completed: false,
