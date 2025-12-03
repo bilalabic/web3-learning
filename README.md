@@ -21,11 +21,16 @@ Each day folder contains:
 
 ### Prerequisites
 
-- Sui CLI installed ([Installation Guide](https://docs.sui.io/build/install))
+**New to programming?** Start with `day_00_setup/README.md` for detailed setup instructions!
+
+- Sui CLI installed ([Quick Install Guide](https://docs.sui.io/build/install) or see `day_00_setup/`)
+- Code editor (VS Code recommended)
 - Git installed
 - Basic terminal knowledge
 
-### First Steps
+**Not sure if you're ready?** Check the setup guide in `day_00_setup/README.md` for step-by-step instructions.
+
+### Quick Start (If You Have Sui CLI Installed)
 
 ```bash
 # Clone or download the project
@@ -42,41 +47,59 @@ sui move build
 sui move test
 ```
 
+**First time?** See detailed explanation of these commands below ⬇️
+
 ## How to Use
 
-1. **Start with Day 1**: Go to `day_01/` folder
-2. **Read the README**: Each day's README explains:
+1. **Setup First** (if needed): Check `day_00_setup/README.md` for installation help
+2. **Start with Day 1**: Go to `day_01/` folder
+3. **Read the README**: Each day's README explains:
    - What you'll learn
    - Key concepts (with examples)
    - Your tasks
    - Reading materials (Move Book links)
-3. **Code**: Open `sources/main.move` and complete the TODOs
-4. **Test**: Run `sui move test` in that day's folder
-5. **Commit**: Commit your work
-6. **Move to next day**: Repeat for `day_02/`, `day_03/`, etc.
+4. **Code**: Open `sources/main.move` and complete the TODOs
+5. **Test**: Run `sui move test` in that day's folder
+6. **Commit**: Commit your work
+7. **Move to next day**: Repeat for `day_02/`, `day_03/`, etc.
 
 ## Project Structure
 
 ```
 21Challenge/
 ├── README.md              # This file
+├── GLOSSARY.md            # Terms and definitions reference
+├── TROUBLESHOOTING.md     # Solutions to common problems
+├── day_00_setup/          # Setup instructions (start here if new!)
+│   └── README.md
 ├── day_01/
 │   ├── README.md          # Day 1 guide
 │   ├── Move.toml          # Package config
 │   └── sources/
-│       └── main.move      # Your code
+│       ├── main.move      # Your code (complete the TODOs)
+│       └── solution.move  # Solution (check if stuck)
 ├── day_02/
 │   ├── README.md
 │   ├── Move.toml
 │   └── sources/
-│       └── main.move
+│       ├── main.move
+│       └── solution.move
 ├── ...
 └── day_21/
     ├── README.md
     ├── Move.toml
     └── sources/
-        └── main.move
+        ├── main.move
+        └── solution.move
 ```
+
+### Key Files
+
+- **GLOSSARY.md** - Quick reference for Move terms (module, struct, ownership, etc.)
+- **TROUBLESHOOTING.md** - Solutions to common errors
+- **day_00_setup/** - Detailed setup guide (Sui CLI, VS Code, terminal basics)
+- **sources/main.move** - Your code file with TODOs
+- **sources/solution.move** - Complete solution (try first, then check!)
 
 ## Learning Goals
 
@@ -98,6 +121,85 @@ For each day:
 2. **Code** (30-60 min) - Complete the TODOs in `main.move`
 3. **Test** (5 min) - Run `sui move test`
 4. **Commit** (1 min) - Commit your work
+
+## Understanding Commands
+
+### `sui move build`
+
+**What it does:** Compiles your Move code into bytecode
+
+**Where to run:** In each day's folder (e.g., inside `day_01/`)
+
+**When to run:** After writing or changing code
+
+**Success looks like:**
+```
+BUILDING day_01
+Build successful
+```
+
+**Error?** See TROUBLESHOOTING.md or check the error message (it shows the line number!)
+
+### `sui move test`
+
+**What it does:** Runs all test functions to verify your code works
+
+**Where to run:** In each day's folder
+
+**When to run:** After completing tasks
+
+**Success looks like:**
+```
+Running Move unit tests
+Test result: OK. Total tests: 3; passed: 3; failed: 0
+```
+
+**Failure?** Fix the code until all tests pass. The error message shows which test failed.
+
+### Common Terminal Commands
+
+```bash
+# Show current directory
+pwd
+
+# List files
+ls
+
+# Change directory (move to a folder)
+cd folder_name
+
+# Go back one folder
+cd ..
+
+# Go to home directory
+cd ~
+
+# Read a file
+cat filename.md
+```
+
+**Need more help?** Check `day_00_setup/README.md` for terminal basics!
+
+## Three Projects, Progressive Learning
+
+This challenge includes **3 different projects** to help you practice:
+
+### Days 1-7: Habit Tracker
+**Focus:** Move basics
+- Learn: structs, vectors, ownership, control flow
+- Build: A simple habit tracking system
+
+### Days 8-14: Task Bounty Board
+**Focus:** Intermediate concepts
+- Learn: enums, Option, visibility, aggregations
+- Build: A task management system with rewards
+
+### Days 15-21: Farm Simulator
+**Focus:** Sui-specific features
+- Learn: Objects, UID, entry functions, events
+- Build: A farm with on-chain state
+
+Each project reinforces previous concepts while introducing new ones!
 
 ## Useful Links
 
