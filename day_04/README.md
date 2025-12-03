@@ -40,11 +40,36 @@ add_habit(&mut list, habit)  // 'list' can still be used after this
 - `&mut` = mutable borrow (can modify)
 - No `&` = transfer ownership (move)
 
+## Note: Using String for Text
+
+**Important change from Day 3:**
+
+In Day 3, you used `vector<u8>` for habit names. Starting from Day 4, we're using `String` instead!
+
+```move
+// Day 3 (old way)
+name: vector<u8>
+
+// Day 4 onwards (modern way)
+name: String
+```
+
+**Why the change?**
+- `String` is more readable and semantic
+- Clearly indicates "this is text"
+- Standard library provides String-specific functions
+- This is the recommended way for new Move code
+
+**Both work, but `String` is preferred.** You'll learn more about `String` in Day 6!
+
 ## Your Task
 
 1. Copy your `Habit` struct from day_03 into `sources/main.move`
-2. Create a `HabitList` struct with a `vector<Habit>` field
-3. Write `empty_list()` and `add_habit()` functions
+2. **Update it to use `String` instead of `vector<u8>`** (see `main.move` for example)
+3. Create a `HabitList` struct with a `vector<Habit>` field
+4. Write `empty_list()` and `add_habit()` functions
+
+**Note:** The code in `sources/main.move` already uses `String` - you can follow that pattern!
 
 ## Reading Materials
 

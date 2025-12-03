@@ -32,13 +32,64 @@ Move has several built-in types called **primitive types**:
 - `address` - A blockchain address (like 0x123...)
 - `vector<T>` - A list of items (we'll learn this later)
 
+## Why Is Day 1 So Simple?
+
+You might notice there's not much code to write today. That's intentional!
+
+**Day 1 is about:**
+- ✅ Setting up your environment
+- ✅ Running your first commands (`sui move build`, `sui move test`)
+- ✅ Understanding the project structure
+- ✅ Getting familiar with Move syntax
+- ✅ Building confidence!
+
+**Tomorrow (Day 2)** you'll write your first function. For today, focus on getting comfortable with the tools and workflow.
+
+## Understanding Move.toml
+
+Every Move project needs a `Move.toml` file. Let's look at what's inside:
+
+```toml
+[package]
+name = "day_01"           # Your package name
+version = "1.0.0"         # Version number
+edition = "2024"          # Move language edition
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git",
+        subdir = "crates/sui-framework/packages/sui-framework",
+        rev = "framework/mainnet" }
+
+[addresses]
+challenge = "0x0"         # Your module address
+```
+
+**What each part means:**
+- **[package]** - Basic information about your project
+- **[dependencies]** - External libraries (here, the Sui framework)
+- **[addresses]** - Named addresses (here, `challenge` is an alias for `0x0`)
+
+**Do you need to modify this?** Not for this challenge! It's already set up correctly for you.
+
+**What is `challenge::day_01`?**
+- `challenge` comes from `[addresses]` (it's `0x0`)
+- `day_01` is the module name
+- Together: `challenge::day_01` = the full module path
+
 ## Your Task
 
 1. Open `sources/main.move`
 2. The module is already set up - just verify it builds
 3. Build and test: `sui move build` and `sui move test`
+4. (Optional) Read the Move.toml file to understand the project configuration
 
+**Expected output:**
+```
+BUILDING day_01
+Build successful
+```
 
+**No tests yet?** That's normal! Day 1 has no test functions yet.
 
 ## Reading Materials
 
