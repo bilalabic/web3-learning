@@ -21,11 +21,13 @@ module challenge::day_17_solution {
         }
     }
 
-    public fun plant(counters: &mut FarmCounters) {
+    // Internal functions - only used within this module
+    // These are implementation details, not part of the public API
+    fun plant(counters: &mut FarmCounters) {
         counters.planted = counters.planted + 1;
     }
 
-    public fun harvest(counters: &mut FarmCounters) {
+    fun harvest(counters: &mut FarmCounters) {
         counters.harvested = counters.harvested + 1;
     }
 

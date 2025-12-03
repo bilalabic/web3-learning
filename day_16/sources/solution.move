@@ -20,6 +20,15 @@ module challenge::day_16_solution {
         }
     }
 
+    // Internal functions - only used within this module
+    fun plant(counters: &mut FarmCounters) {
+        counters.planted = counters.planted + 1;
+    }
+
+    fun harvest(counters: &mut FarmCounters) {
+        counters.harvested = counters.harvested + 1;
+    }
+
     // Farm object - a Sui object that can be owned
     public struct Farm has key {
         id: UID,

@@ -88,7 +88,7 @@ module challenge::day_14_solution {
         add_task(&mut board, task);
         
         let len = vector::length(&board.tasks);
-        assert!(len == 1);
+        assert_eq!(len, 1);
     }
 
     // Test: Complete a task
@@ -107,7 +107,7 @@ module challenge::day_14_solution {
         let task = vector::borrow_mut(&mut board.tasks, 0);
         complete_task(task);
         
-        assert!(completed_count(&board) == 1);
+        assert_eq!(completed_count(&board), 1);
     }
 
     // Test: Total reward calculation

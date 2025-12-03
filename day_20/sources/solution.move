@@ -22,11 +22,12 @@ module challenge::day_20_solution {
         }
     }
 
-    public fun plant(counters: &mut FarmCounters) {
+    // Internal functions - only used within this module
+    fun plant(counters: &mut FarmCounters) {
         counters.planted = counters.planted + 1;
     }
 
-    public fun harvest(counters: &mut FarmCounters) {
+    fun harvest(counters: &mut FarmCounters) {
         counters.harvested = counters.harvested + 1;
     }
 
@@ -42,9 +43,17 @@ module challenge::day_20_solution {
         }
     }
 
+    // Entry function to create an owned farm
     entry fun create_farm(ctx: &mut TxContext) {
         let farm = new_farm(ctx);
         transfer::transfer(farm, sender(ctx));
+    }
+
+    // Entry function to create a shared farm
+    // Shared objects can be accessed by anyone on-chain
+    entry fun create_shared_farm(ctx: &mut TxContext) {
+        let farm = new_farm(ctx);
+        transfer::share_object(farm);
     }
 
     public fun plant_on_farm(farm: &mut Farm) {

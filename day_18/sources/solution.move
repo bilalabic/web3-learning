@@ -21,11 +21,12 @@ module challenge::day_18_solution {
         }
     }
 
-    public fun plant(counters: &mut FarmCounters) {
+    // Internal functions - only used within this module
+    fun plant(counters: &mut FarmCounters) {
         counters.planted = counters.planted + 1;
     }
 
-    public fun harvest(counters: &mut FarmCounters) {
+    fun harvest(counters: &mut FarmCounters) {
         counters.harvested = counters.harvested + 1;
     }
 
@@ -55,11 +56,16 @@ module challenge::day_18_solution {
     }
 
     // Entry function to plant on a farm
+    // Note: This works with owned objects (objects you own)
+    // For shared objects, the signature would be the same, but the object
+    // would need to be created as shared using transfer::share_object()
     entry fun plant_on_farm_entry(farm: &mut Farm) {
         plant_on_farm(farm);
     }
 
     // Entry function to harvest from a farm
+    // Same note: works with owned objects
+    // Shared objects can also use the same signature
     entry fun harvest_from_farm_entry(farm: &mut Farm) {
         harvest_from_farm(farm);
     }

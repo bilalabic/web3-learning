@@ -19,11 +19,15 @@ module challenge::day_15_solution {
     }
 
     // Increment planted counter
+    // This represents planting a crop
     public fun plant(counters: &mut FarmCounters) {
         counters.planted = counters.planted + 1;
     }
 
     // Increment harvested counter
+    // This represents harvesting a crop
+    // Note: In a real system, you might want to check that harvested <= planted
+    // For now, we keep it simple with independent counters
     public fun harvest(counters: &mut FarmCounters) {
         counters.harvested = counters.harvested + 1;
     }

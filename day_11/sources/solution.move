@@ -1,4 +1,4 @@
-/// DAY 11: TaskBoard & Ownership Ideas - SOLUTION
+/// DAY 11: TaskBoard & Address Type - SOLUTION
 /// 
 /// This is the solution file for day 11.
 /// Students should complete main.move, not this file.
