@@ -58,10 +58,17 @@ sui move test
    - Key concepts (with examples)
    - Your tasks
    - Reading materials (Move Book links)
+   - **Related Days** - see which days connect to this one
 4. **Code**: Open `sources/main.move` and complete the TODOs
+   - Look for `TODO:` comments with instructions
+   - Code examples and hints are provided as comments
 5. **Test**: Run `sui move test` in that day's folder
-6. **Commit**: Commit your work
-7. **Move to next day**: Repeat for `day_02/`, `day_03/`, etc.
+6. **Stuck?** Check the solution:
+   - Look at `sources/solution.move` for the complete answer
+   - Try solving it yourself first!
+   - Solutions include helpful comments explaining the logic
+7. **Commit**: Commit your work
+8. **Move to next day**: Repeat for `day_02/`, `day_03/`, etc.
 
 ## Project Structure
 
@@ -201,6 +208,40 @@ This challenge includes **3 different projects** to help you practice:
 
 Each project reinforces previous concepts while introducing new ones!
 
+## Learning Features
+
+This challenge includes several features to help you learn effectively:
+
+### 📚 Comprehensive Documentation
+- **GLOSSARY.md** - Quick reference for all Move terms (alphabetically organized)
+- **TROUBLESHOOTING.md** - Solutions to common errors with examples
+- **day_00_setup/** - Step-by-step installation guide using suiup
+
+### 🗺️ Smart Navigation
+- **Related Days** sections in each day's README show:
+  - Prerequisites (which days to complete first)
+  - What comes next (where this leads)
+  - Connected concepts across days
+
+### 💡 Learning Aids in Every Day
+- **TODO comments** with clear instructions
+- **Code examples** showing syntax and patterns
+- **Hints** for tricky parts
+- **Complete solutions** with explanatory comments
+- **Move Book links** for deeper understanding
+
+### 🧪 Test-Driven Learning
+- Each day includes tests to verify your code
+- Tests fail until you complete the tasks correctly
+- Immediate feedback on your progress
+
+### 🎯 When You Get Stuck
+1. **Re-read the day's README** - the answer is often there
+2. **Check GLOSSARY.md** - understand the terms
+3. **Look at code examples** - see how it's done
+4. **Check TROUBLESHOOTING.md** - common errors and fixes
+5. **Peek at solution.move** - but try first!
+
 ## Useful Links
 
 - [Move Book](https://move-book.com) - Main learning resource
@@ -210,8 +251,12 @@ Each project reinforces previous concepts while introducing new ones!
 
 - **Work in the day's folder**: Each day is self-contained
 - **Read before coding**: Understanding concepts is crucial
+- **Use the learning aids**: TODO comments, hints, and examples are there to help
+- **Try before checking solutions**: Learning happens through struggle!
+- **Follow Related Days links**: They help you understand the learning path
 - **Keep it simple**: This is educational material, not production code
 - **Test often**: Run tests after each change
+- **Use reference docs**: GLOSSARY and TROUBLESHOOTING are your friends
 - **Commit daily**: Track your progress
 - **Clean commits**: The `.gitignore` file is set up to exclude build artifacts - commit only your source code
 
