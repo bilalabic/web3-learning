@@ -81,5 +81,13 @@ module challenge::day_20 {
     //     // Your existing code
     //     // Then: event::emit(PlantEvent { planted_after: ... });
     // }
+
+    // TODO: (Optional) Write an entry function 'create_shared_farm' that:
+    // - Creates a new farm using new_farm(ctx)
+    // - Makes it shared using transfer::share_object()
+    // Shared objects can be accessed by anyone, not just the creator
+    // entry fun create_shared_farm(ctx: &mut TxContext) {
+    //     // Your code here
+    // }
 }
 

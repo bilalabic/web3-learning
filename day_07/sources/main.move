@@ -1,5 +1,5 @@
 /// DAY 7: Unit Tests for Habit Tracker
-/// 
+///
 /// Today you will:
 /// 1. Learn how to write tests in Move
 /// 2. Write tests for your habit tracker
@@ -60,7 +60,7 @@ module challenge::day_07 {
     // #[test]
     // fun test_add_habits() {
     //     // Your code here
-    //     // Use string::utf8(b"Exercise") to create a String
+    //     // Use b"Exercise".to_string() to create a String
     // }
 
     // TODO: Write a test 'test_complete_habit' that:

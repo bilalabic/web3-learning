@@ -1,4 +1,4 @@
-/// DAY 11: TaskBoard & Ownership Ideas (Address Type)
+/// DAY 11: TaskBoard & Address Type
 /// 
 /// Today you will:
 /// 1. Learn about the address type
@@ -6,6 +6,8 @@
 /// 3. Understand ownership in practice
 ///
 /// Note: You can copy code from day_10/sources/solution.move if needed
+/// 
+/// Related: Day 10 (Visibility), Day 12 (Building on TaskBoard)
 
 module challenge::day_11 {
     use std::vector;
@@ -36,7 +38,7 @@ module challenge::day_11 {
     }
 
     // TODO: Define a struct called 'TaskBoard' with:
-    // - owner: address (who owns this board)
+    // - owner: address (the address that owns this board)
     // - tasks: vector<Task>
     // Add 'drop' ability
     // public struct TaskBoard has drop {
@@ -52,7 +54,7 @@ module challenge::day_11 {
     // TODO: Write a function 'add_task' that:
     // - Takes board: &mut TaskBoard and task: Task
     // - Adds the task to the board's vector
-    // This transfers ownership of the task to the board
+    // The task becomes part of the board's data
     // public fun add_task(board: &mut TaskBoard, task: Task) {
     //     // Your code here
     // }

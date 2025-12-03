@@ -1,4 +1,4 @@
-/// DAY 10: Visibility & API Design
+/// DAY 10: Visibility Modifiers (Public vs Private Functions)
 /// 
 /// Today you will:
 /// 1. Learn about visibility modifiers (public vs private)
