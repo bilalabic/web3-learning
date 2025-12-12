@@ -47,8 +47,10 @@ module challenge::day_07_solution {
     #[test]
     fun test_add_habits() {
         let mut list = empty_list();
-        let habit1 = new_habit(string::utf8(b"Exercise"));
-        let habit2 = new_habit(string::utf8(b"Read"));
+        // b"...".to_string() converts byte literals (b"...") to String
+        // This is the standard way to create String values in Move
+        let habit1 = new_habit(b"Exercise".to_string());
+        let habit2 = new_habit(b"Read".to_string());
         
         add_habit(&mut list, habit1);
         add_habit(&mut list, habit2);

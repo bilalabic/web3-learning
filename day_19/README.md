@@ -45,6 +45,15 @@ All functions now take `plotId: u8` parameters.
    - Takes `farm: &Farm` (read-only reference)
    - Returns `u64` (the harvested count)
 
+## Testing
+
+Tests for this day are located in `tests/day_19_test.move`. This is an independent test file that demonstrates how to test query functions using Sui's test scenario framework.
+
+To run the tests:
+```bash
+sui move test
+```
+
 ## Reading Materials
 
 1. **Functions** - Review function syntax:

@@ -1,4 +1,4 @@
-/// DAY 10: Visibility & API Design - SOLUTION
+/// DAY 10: Visibility Modifiers (Public vs Private Functions) - SOLUTION
 /// 
 /// This is the solution file for day 10.
 /// Students should complete main.move, not this file.
@@ -36,8 +36,12 @@ module challenge::day_10_solution {
     }
 
     // Private helper function (example)
-    fun internal_helper() {
-        // This can only be called from within this module
+    // This function can only be called from within this module
+    // It's useful for internal logic that shouldn't be exposed publicly
+    fun internal_helper(task: &Task): bool {
+        // Example: Internal validation logic
+        // Only this module can call this, not external users
+        task.reward > 0
     }
 }
 

@@ -48,8 +48,10 @@ module challenge::day_06 {
     }
 
     // TODO: Update Habit struct to use String instead of vector<u8>
+    // Note: String is the preferred type for text data in Move.
+    // You can use String directly - no need to work with vector<u8>!
     // public struct Habit has copy, drop {
-    //     name: String,  // Changed from vector<u8>
+    //     name: String,  // Changed from vector<u8> - String is better!
     //     completed: bool,
     // }
 

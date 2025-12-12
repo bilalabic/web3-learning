@@ -53,6 +53,11 @@ All functions now take `plotId: u8` parameters.
 3. **UID & ID** - Learn about unique identifiers:
    [https://move-book.com/storage/uid-and-id/](https://move-book.com/storage/uid-and-id/)
 
+## Related Days
+
+- **Day 15** - FarmCounters struct (prerequisite)
+- **Day 17** - Entry functions and transferring objects
+
 ## Commit
 
 ```bash

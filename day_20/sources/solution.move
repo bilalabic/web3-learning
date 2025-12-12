@@ -83,6 +83,7 @@ module challenge::day_20_solution {
         }
     }
 
+    // Entry function to create an owned farm
     entry fun create_farm(ctx: &mut TxContext) {
         let farm = new_farm(ctx);
         transfer::share_object(farm);
