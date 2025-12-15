@@ -43,5 +43,10 @@ module challenge::day_10_solution {
         // Only this module can call this, not external users
         task.reward > 0
     }
+
+    // Public function that calls the private internal_helper
+    public fun has_valid_reward(task: &Task): bool {
+        internal_helper(task)
+    }
 }
 

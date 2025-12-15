@@ -45,5 +45,7 @@ module challenge::day_10 {
     // TODO: (Optional) Write a private helper function
     // Private functions use 'fun' instead of 'public fun'
     // They can only be called from within the same module
+    // BONUS: Add a public function that calls your private helper
+    //        (e.g. 'has_valid_reward' that internally calls 'internal_helper')
 }
 
