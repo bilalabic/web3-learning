@@ -16,5 +16,7 @@ module challenge::day_01 {
     // let number: u64 = 42;
     // let flag: bool = true;
     // let addr: address = @0x1;
+
+
 }
 
