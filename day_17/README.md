@@ -25,7 +25,7 @@ When you create an object, you need to give it to someone. You can:
 
 1. **Transfer ownership** using `transfer::transfer()`:
    ```move
-   transfer::transfer(farm, sender(ctx))
+   transfer::transfer(farm, ctx.sender())
    ```
    This transfers ownership of `farm` to the address that sent the transaction.
 

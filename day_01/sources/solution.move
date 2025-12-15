@@ -6,7 +6,14 @@
 /// To test this solution, temporarily rename main.move and use this file.
 
 module challenge::day_01_solution {
-    // Day 1: Basic module structure
-    // This is just an empty module to demonstrate the basic structure
+    // Day 1: Basic module structure + a simple example using primitive types.
+
+    /// Example: variable declarations with primitive types in a simple function.
+    public fun example_primitives(): u64 {
+        let number: u64 = 42;
+        let _flag: bool = true;
+        let _addr: address = @0x1;
+        number
+    }
 }
 

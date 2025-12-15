@@ -73,7 +73,7 @@ entry fun create_something(ctx: &mut TxContext) {
       id: object::new(ctx)
     };
     // Transfer it to the sender
-    transfer::transfer(obj, sender(ctx));
+    transfer::transfer(obj, ctx.sender());
 }
 ```
 
