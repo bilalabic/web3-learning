@@ -393,4 +393,15 @@ Before starting Day 1, make sure:
 2. Read the README: `cat README.md` or open in VS Code
 3. Start coding!
 
+---
+
+## Need Help?
+
+If you get stuck or have questions:
+
+- **WhatsApp Community:** [Join our support group](https://chat.whatsapp.com/DZH6y2XMDQ58NY5DheUhQs?mode=hqrc)
+- **X (Twitter):** [@ercandotsui](https://x.com/ercandotsui)
+
+Don't hesitate to ask questions - we're here to help!
+
 **Happy learning!** 

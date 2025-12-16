@@ -247,6 +247,15 @@ This challenge includes several features to help you learn effectively:
 - [Move Book](https://move-book.com) - Main learning resource
 - [Sui Documentation](https://docs.sui.io) - Sui platform docs
 
+## Community & Support
+
+Need help or want to connect with other learners?
+
+- **WhatsApp Community:** [Join our support group](https://chat.whatsapp.com/DZH6y2XMDQ58NY5DheUhQs?mode=hqrc)
+- **X (Twitter):** [@ercandotsui](https://x.com/ercandotsui)
+
+Don't hesitate to ask questions - learning together is better!
+
 ## Important Notes
 
 - **Work in the day's folder**: Each day is self-contained
