@@ -7,16 +7,16 @@
 /// Task: Verify the module builds correctly
 
 module challenge::day_01 {
-    // Day 1: Basic module structure
-    // This empty module is sufficient for Day 1
-    // Just verify it builds with: sui move build
+    // Day 1: Basic module structure + primitive types
 
-    // Example: Variable declarations with primitive types
-    // You can declare variables in functions like this:
-    // let number: u64 = 42;
-    // let flag: bool = true;
-    // let addr: address = @0x1;
-
+    // TODO: Define three constants to practice primitive types
+    //
+    // Example format:
+    // const NUMBER: u64 = 42;
+    // const FLAG: bool = true;
+    // const MY_ADDRESS: address = @0x1;
+    //
+    // Remember: Constants must be named in UPPERCASE!
 
 }
 

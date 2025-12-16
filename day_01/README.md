@@ -32,6 +32,21 @@ Move has several built-in types called **primitive types**:
 - `address` - A blockchain address (like 0x123...)
 - `vector<T>` - A list of items (we'll learn this later)
 
+## Understanding Constants
+
+In Move, you can define **constants** at the module level:
+
+```move
+const NUMBER: u64 = 42;
+const FLAG: bool = true;
+const MY_ADDRESS: address = @0x1;
+```
+
+**Rules:**
+- Use `const` keyword
+- Names must be UPPERCASE
+- Constants are immutable
+
 ## Why Is Day 1 So Simple?
 
 You might notice there's not much code to write today. That's intentional!
@@ -79,9 +94,16 @@ challenge = "0x0"         # Your module address
 ## Your Task
 
 1. Open `sources/main.move`
-2. The module is already set up - just verify it builds
+2. Define three constants using primitive types (follow the TODO instructions)
 3. Build and test: `sui move build` and `sui move test`
 4. (Optional) Read the Move.toml file to understand the project configuration
+
+**Your constants should look like:**
+```move
+const NUMBER: u64 = 42;
+const FLAG: bool = true;
+const MY_ADDRESS: address = @0x1;
+```
 
 **Expected output:**
 ```
@@ -89,7 +111,7 @@ BUILDING day_01
 Build successful
 ```
 
-**No tests yet?** That's normal! Day 1 has no test functions yet.
+**No tests yet?** That's normal! Day 1 has no test functions yet. We'll start testing in Day 2.
 
 ## Reading Materials
 
