@@ -88,7 +88,7 @@ module challenge::day_19 {
 
     entry fun create_farm(ctx: &mut TxContext) {
         let farm = new_farm(ctx);
-        transfer::transfer(farm, sender(ctx));
+        transfer::share_object(farm);
     }
 
     fun plant_on_farm(farm: &mut Farm, plotId: u8) {
