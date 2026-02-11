@@ -39,6 +39,56 @@ This guide helps you solve common problems you might encounter during the 21-Day
 
 ---
 
+## Build & Test Warnings
+
+### Warnings During `sui move build` or `sui move test`
+
+**Example:**
+```
+warning[W09005]: unused function
+   ┌─ sources/main.move:8:16
+   │
+ 8 │     public fun get_name(): vector<u8> {
+   │                ^^^^^^^^ ...
+```
+
+**This is NOT a problem!** Warnings are informational messages from the compiler. They do **not** prevent your code from compiling or your tests from passing. As long as you see `Build successful` at the end, everything is working correctly.
+
+**Common warnings you may see:**
+- `unused function` - A function exists but isn't called yet (normal during development)
+- `unused variable` - A variable is declared but not used
+- `unused import` - An import exists but isn't referenced
+
+These warnings will naturally disappear as you progress through the days and use the functions in later exercises.
+
+> **TL;DR:** Warnings = OK. Errors = Fix needed. If the build or test succeeds, you're good!
+
+---
+
+### Windows: `Move.lock` Bug
+
+**Problem:** On **Windows** machines, `sui move build` may fail if a `Move.lock` file already exists from a previous build.
+
+**Symptoms:**
+- Build fails unexpectedly even though code is correct
+- Error messages related to dependency resolution or lock file
+
+**Solution:** Delete the `Move.lock` file before building:
+
+```bash
+rm Move.lock
+sui move build
+```
+
+**Or combine in one command:**
+```bash
+rm -f Move.lock && sui move build
+```
+
+> **Note:** This issue is specific to Windows (including WSL). macOS and Linux users generally do not experience this problem. The `Move.lock` file is auto-generated, so deleting it is perfectly safe.
+
+---
+
 ## Build Errors
 
 ### Error: "could not find module"

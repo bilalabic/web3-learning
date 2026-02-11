@@ -145,6 +145,10 @@ BUILDING day_01
 Build successful
 ```
 
+> **You may see warnings — this is normal!** The compiler may show warnings like `unused function` or `unused variable`. These are NOT errors. As long as you see `Build successful` at the end, your code is correct.
+
+> **Windows users:** If the build fails, try deleting the `Move.lock` file and rebuilding: `rm Move.lock && sui move build`. See TROUBLESHOOTING.md for details.
+
 **Error?** See TROUBLESHOOTING.md or check the error message (it shows the line number!)
 
 ### `sui move test`
@@ -160,6 +164,8 @@ Build successful
 Running Move unit tests
 Test result: OK. Total tests: 3; passed: 3; failed: 0
 ```
+
+> **You may see warnings — this is normal!** You may also see warnings like `unused function` when running tests. If the tests pass (shows `OK`), everything is fine.
 
 **Failure?** Fix the code until all tests pass. The error message shows which test failed.
 

@@ -232,6 +232,15 @@ BUILDING day_01
 Build successful
 ```
 
+> **You may see warnings — this is normal!** Warnings like `unused function` or `unused variable` are NOT errors. As long as you see `Build successful` at the end, your code is correct. These warnings will disappear as you use the functions in later days.
+
+> **Windows users:** If the build fails, try deleting the `Move.lock` file and rebuilding:
+> ```bash
+> rm Move.lock
+> sui move build
+> ```
+> This is a known Windows-specific issue. See TROUBLESHOOTING.md for details.
+
 **If you see errors:** Check TROUBLESHOOTING.md in the project root.
 
 ### Run Tests
@@ -247,6 +256,8 @@ sui move test
 Running Move unit tests
 Test result: OK. Total tests: 0; passed: 0; failed: 0
 ```
+
+> **You may see warnings — this is normal!** You may also see warnings when running tests. If the tests pass (shows `OK`), your code is working correctly.
 
 **Note:** Day 1 has no tests yet, that's normal!
 
