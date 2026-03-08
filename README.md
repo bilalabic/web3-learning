@@ -1,44 +1,51 @@
 # 💸 PayShare dApp
 
-I made this project while completing Level 1 of **Stellar Journey to Mastery: Monthly Builder Challenges**. I am learning Stellar development. This is a basic dApp — you connect your wallet, split a bill between friends, and send XLM to each person.
+This is a Level 1 project for **Stellar Journey to Mastery: Monthly Builder Challenges**.
+I built it to learn Stellar — how wallets work, how to send XLM, and how to read the blockchain.
+
+The app lets you enter a total bill, split it between friends, and send XLM to each person's address.
 
 ---
 
 ## Setup
+
+Install [Freighter wallet](https://www.freighter.app/) and set it to **Testnet**. Fund your wallet from inside the extension.
+
+Then run:
 
 ```bash
 npm install
 npm start
 ```
 
-You need [Freighter wallet](https://www.freighter.app/) browser extension. Set it to **Testnet** and fund your wallet from inside the extension.
+App opens at `https://localhost:3000`
 
 ---
 
 ## How to use
 
 1. Click **Connect Wallet**
-2. Enter total amount and number of people
-3. Enter each address
-4. Click **Send to All**
+2. Enter the total amount and number of people
+3. Enter each person's Stellar address
+4. Click **Send to All** — Freighter will ask you to confirm each payment
 
 ---
 
 ## Screenshots
 
-**Wallet connected and balance shown**
+**1. Wallet connected — address and XLM balance is shown**
 ![wallet connected](ss/wallet-connected.png)
 
-**QR code for receiving XLM**
+**2. QR code — share it so others can send you XLM**
 ![qr code](ss/qr-code.png)
 
-**Freighter asks you to confirm the transaction**
+**3. Freighter popup — it shows the amount and asks you to confirm**
 ![freighter confirm](ss/freighter-confirm.png)
 
-**After sending — each address shows success or fail**
+**4. Split bill result — green means sent, red means failed. Each one has an explorer link**
 ![split bill result](ss/split-bill-result.png)
 
-**Recent transactions list**
+**5. Transaction history — shows sent and received payments**
 ![transaction history](ss/transaction-history.png)
 
 ---
