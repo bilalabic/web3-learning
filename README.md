@@ -26,10 +26,19 @@ You need [Freighter wallet](https://www.freighter.app/) browser extension. Set i
 
 ## Screenshots
 
+**Wallet connected and balance shown**
 ![wallet connected](ss/wallet-connected.png)
+
+**QR code for receiving XLM**
 ![qr code](ss/qr-code.png)
+
+**Freighter asks you to confirm the transaction**
 ![freighter confirm](ss/freighter-confirm.png)
+
+**After sending — each address shows success or fail**
 ![split bill result](ss/split-bill-result.png)
+
+**Recent transactions list**
 ![transaction history](ss/transaction-history.png)
 
 ---
