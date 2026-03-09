@@ -8,6 +8,7 @@
 module challenge::day_05 {
     use std::vector;
 
+    const EIndex: u64 = 0;
     // Copy from day_04
     public struct Habit has copy, drop {
         name: vector<u8>,
@@ -45,5 +46,36 @@ module challenge::day_05 {
     //     // Your code here
     //     // Hint: if (index < length) { ... }
     // }
+
+    public fun complete_habit(habits: &mut HabitList, index: u64) {
+        
+        let len = vector::length(&mut habits.habits);
+
+        if (index >= len) {
+            abort(EIndex); //Error: Index not found
+        } ;
+
+        let habit_to_complete = vector::borrow_mut(&mut habits.habits, index);
+
+        habit_to_complete.completed = true;
+    }
+    
+    #[test]
+    fun test_complete_habit_basarili() {
+        let mut my_list = empty_list();
+        let habit1 = Habit { name: b"Write code", completed: false };
+        let habit2 = Habit { name: b"Using AI", completed: false };
+        let habit3 = Habit { name: b"Striving for financial independence", completed: false };
+        let habit4 = Habit { name: b"I'm visualizing everything in my mind.", completed: false };
+        add_habit(&mut my_list, habit1);
+        add_habit(&mut my_list, habit2);
+        add_habit(&mut my_list, habit3);
+        add_habit(&mut my_list, habit4);    
+        
+        complete_habit(&mut my_list, 2);
+
+        assert!(my_list.habits[2].completed == true, 100);
+        assert!(my_list.habits[1].completed == false, 101);
+}
 }
 
