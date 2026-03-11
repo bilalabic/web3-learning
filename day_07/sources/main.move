@@ -62,7 +62,6 @@ module challenge::day_07 {
     //     // Your code here
     //     // Use b"Exercise".to_string() to create a String
     // }
-
     // TODO: Write a test 'test_complete_habit' that:
     // - Creates a list and adds a habit
     // - Completes the habit
@@ -71,5 +70,28 @@ module challenge::day_07 {
     // fun test_complete_habit() {
     //     // Your code here
     // }
+    #[test]
+    public fun test_add_habits() {
+        let mut list = empty_list();
+        let habit1 = make_habit(b"Use Move");
+        let habit2 = make_habit(b"Read documentation");
+
+        add_habit(&mut list, habit1);
+        add_habit(&mut list, habit2);
+
+        let len = vector::length(&list.habits);
+        assert!(len == 2, 1);
+    }
+    #[test]
+    public fun test_complete_habit() {
+        let mut list = empty_list();
+        let habit = make_habit(b"Learn Move");
+
+        add_habit(&mut list, habit);
+        complete_habit(&mut list, 0);
+
+        let completed = vector::borrow(&list.habits, 0).completed;
+        assert!(completed, 2);
+    }
 }
 
