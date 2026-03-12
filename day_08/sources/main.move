@@ -24,3 +24,29 @@ module challenge::day_08 {
     // }
 }
 
+module challenge::task_bounty_board{
+    use std::string::{Self, String};
+
+    public struct Task has copy, drop {
+        title: String,
+        reward: u64,
+        done: bool,
+    }
+
+    public fun new_task(title: String, reward: u64): Task {
+        Task {
+            title,
+            reward,
+            done: false,
+        }
+    }
+
+    #[test]
+    public fun test_new_task() {
+        let task = new_task(string::utf8(b"Build a DApp"), 100);
+        assert!(task.title == string::utf8(b"Build a DApp"), 1);
+        assert!(task.reward == 100, 2);
+        assert!(task.done == false, 3);
+    }
+}
+
