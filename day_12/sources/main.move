@@ -9,7 +9,7 @@
 
 module challenge::day_12 {
     use std::vector;
-    use std::string::String;
+    use std::string::{Self, String};
     use std::option::{Self, Option};
 
     // Copy from day_11: TaskStatus, Task, and TaskBoard
@@ -58,5 +58,37 @@ module challenge::day_12 {
     //     // Use option::some(index) if found
     //     // Use option::none() if not found
     // }
-}
+    public fun find_task_by_title(board: &TaskBoard, title: &String): Option<u64> {
+        let mut i = 0;
+        let len = vector::length(&board.tasks);
+        while (i < len) {
+            let task = vector::borrow(&board.tasks, i);
+            if (&task.title == title) {
+                return option::some(i);
+            };
+            i = i + 1;
+        };
+        option::none()
+    }
 
+    #[test]
+    public fun test_find_task() {
+        let owner_address = @0x268426842;
+        let mut board = new_board(owner_address);
+        let task1 = new_task(string::utf8(b"Sui Move"), 100);
+        add_task(&mut board, task1);
+        let result = find_task_by_title(&board, &string::utf8(b"Sui Move"));
+        assert!(option::is_some(&result));
+        assert!(option::borrow(&result) == &0);
+    }   
+    #[test]
+    public fun test_find_task2() {
+        let owner_address = @0x12345678;
+        let mut board = new_board(owner_address);
+        let task1 = new_task(string::utf8(b"Move Sui"), 100);
+        add_task(&mut board, task1);
+        let result = find_task_by_title(&board, &string::utf8(b"Move SUI")); // SUI is different from Sui, that's why it will give an error.
+        assert!(option::is_some(&result));
+        assert!(option::borrow(&result) == &0);
+    }   
+}
