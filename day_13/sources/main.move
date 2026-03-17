@@ -9,7 +9,7 @@
 
 module challenge::day_13 {
     use std::vector;
-    use std::string::String;
+    use std::string::{Self, String};
     use std::option::{Self, Option};
 
     // Copy from day_12: All structs and functions
@@ -70,7 +70,17 @@ module challenge::day_13 {
     //     // Initialize total = 0
     //     // Loop through tasks, add each reward to total
     // }
-
+    public fun total_reward(board: &TaskBoard): u64 {
+        let len = vector::length(&board.tasks);
+        let mut total = 0;
+        let mut i = 0;
+        while (i < len) {
+            let task = vector::borrow(&board.tasks, i);
+            total = total + task.reward;
+            i = i + 1;
+        };
+        total
+    }
     // TODO: Write a function 'completed_count' that:
     // - Takes board: &TaskBoard
     // - Returns u64 (count of completed tasks)
@@ -78,5 +88,30 @@ module challenge::day_13 {
     // public fun completed_count(board: &TaskBoard): u64 {
     //     // Your code here
     // }
+    public fun completed_count(board: &TaskBoard): u64 {
+        let len = vector::length(&board.tasks);
+        let mut count = 0;
+        let mut i = 0;
+        while (i < len) {
+            let task = vector::borrow(&board.tasks, i);
+            if (task.status == TaskStatus::Completed) {
+                count = count + 1;
+            };
+            i = i + 1;
+        };
+        count
+    }
+    
+    #[test]
+    public fun test_aggregations() {
+        let owner_address = @0x8642264;
+        let mut board = new_board(owner_address);
+        let task1 = new_task(string::utf8(b"Collect 10 herbs"), 100);
+        let task2 = new_task(string::utf8(b"Defeat the dragon"), 500);
+        add_task(&mut board, task1);
+        add_task(&mut board, task2);
+        assert!(total_reward(&board) == 600);
+        assert!(completed_count(&board) == 0);
+    }
 }
 
