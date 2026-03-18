@@ -9,12 +9,8 @@
 
 module challenge::day_14 {
     use std::vector;
-    use std::string::String;
+    use std::string::{Self, String};
     use std::option::{Self, Option};
-
-    #[test_only]
-    use std::unit_test::assert_eq;
-    use std::string;
 
     // Copy from day_13: All structs and functions
     public enum TaskStatus has copy, drop {
@@ -104,5 +100,35 @@ module challenge::day_14 {
     // fun test_create_board_and_add_task() {
     //     // Your code here
     // }
+    #[test]
+    public fun test_create_board_and_add_task() {
+        let owner_address = @0x8888888;
+        let mut board = new_board(owner_address);
+        let task1 = new_task(string::utf8(b"456987"), 100);
+        add_task(&mut board, task1);
+        assert!(vector::length(&board.tasks) == 1);
+    }
+    #[test]
+    public fun test_complete_task() {
+        let owner_address = @0x7777777;
+        let mut board = new_board(owner_address);
+        let task1 = new_task(string::utf8(b"789"), 100);
+        let task2 = new_task(string::utf8(b"7894"), 500);
+        add_task(&mut board, task1);
+        add_task(&mut board, task2);
+        let task = vector::borrow_mut(&mut board.tasks, 0);
+        complete_task(task);
+        assert!(completed_count(&board) == 1);
+    }
+    #[test]
+    public fun test_total_reward() {
+        let owner_address = @0x0000000;
+        let mut board = new_board(owner_address);
+        let task1 = new_task(string::utf8(b"123"), 100);
+        let task2 = new_task(string::utf8(b"1234"), 500);
+        add_task(&mut board, task1);
+        add_task(&mut board, task2);
+        assert!(total_reward(&board) == 600);
+    }
 }
 
