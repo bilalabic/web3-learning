@@ -12,6 +12,9 @@ module challenge::day_16 {
 
 
     // Copy from day_15: FarmCounters struct
+    use std::vector;
+    use std::option::{Self,Option};
+
     const MAX_PLOTS: u64 = 20;
     const E_PLOT_NOT_FOUND: u64 = 1;
     const E_PLOT_LIMIT_EXCEEDED: u64 = 2;
@@ -23,7 +26,7 @@ module challenge::day_16 {
         harvested: u64,
         plots: vector<u8>,
     }
-
+    
     fun new_counters(): FarmCounters {
         FarmCounters {
             planted: 0,
@@ -31,47 +34,32 @@ module challenge::day_16 {
             plots: vector::empty(),
         }
     }
-
     fun plant(counters: &mut FarmCounters, plotId: u8) {
-        // Check if plotId is valid (between 1 and 20)
-        assert!(plotId >= 1 && plotId <= (MAX_PLOTS as u8), E_INVALID_PLOT_ID);
         
-        // Check if we've reached the plot limit
-        let len = vector::length(&counters.plots);
-        assert!(len < MAX_PLOTS, E_PLOT_LIMIT_EXCEEDED);
-        
-        // Check if plot already exists in the vector
-        let mut i = 0;
-        while (i < len) {
-            let existing_plot = vector::borrow(&counters.plots, i);
-            assert!(*existing_plot != plotId, E_PLOT_ALREADY_EXISTS);
-            i = i + 1;
+        if (plotId == 0 || (plotId as u64) > MAX_PLOTS) {
+            abort E_INVALID_PLOT_ID;
         };
         
-        counters.planted = counters.planted + 1;
+        if (vector::contains(&counters.plots, &plotId)) {
+            abort E_PLOT_ALREADY_EXISTS;
+        };
+        
+        if (vector::length(&counters.plots) >= MAX_PLOTS) {
+            abort E_PLOT_LIMIT_EXCEEDED;
+        };
+        
         vector::push_back(&mut counters.plots, plotId);
+        counters.planted = counters.planted + 1;
     }
 
     fun harvest(counters: &mut FarmCounters, plotId: u8) {
-        let len = vector::length(&counters.plots);
-                
-        // Check if plot exists in the vector and find its index
-        let mut i = 0;
-        let mut found_index = len; 
-        while (i < len) {
-            let existing_plot = vector::borrow(&counters.plots, i);
-            if (*existing_plot == plotId) {
-                found_index = i;
-            };
-            i = i + 1;
-        };
+        let (is_found, index) = vector::index_of(&counters.plots, &plotId);
+
+        assert!(is_found, 1);
         
-        // Assert that plot was found (found_index < len means we found it)
-        assert!(found_index < len, E_PLOT_NOT_FOUND);
-        
-        // Remove the plot from the vector
-        vector::remove(&mut counters.plots, found_index);
+        vector::remove(&mut counters.plots, index);
         counters.harvested = counters.harvested + 1;
+
     }
 
     // TODO: Define a struct called 'Farm' with:
@@ -82,7 +70,10 @@ module challenge::day_16 {
     //     id: UID,
     //     counters: FarmCounters,
     // }
-
+    public struct Farm has key {
+        id: UID,
+        counters: FarmCounters,
+    }
     // TODO: Write a constructor 'new_farm' that:
     // - Takes ctx: &mut TxContext
     // - Creates a UID using object::new(ctx)
@@ -91,5 +82,11 @@ module challenge::day_16 {
     //     // Your code here
     //     // Hint: let id = object::new(ctx);
     // }
+    fun new_farm(ctx: &mut TxContext): Farm {
+        Farm {
+            id: object::new(ctx),
+            counters: new_counters(),
+        }
+    }
 }
 
