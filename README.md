@@ -8,6 +8,8 @@ Archive of beginner blockchain learning projects, consolidated from separate rep
 | --- | --- |
 | [Sui21Challenge](sui/Sui21Challenge) | 21-day Sui Move learning challenge with one folder per day |
 
+The challenge structure and exercises come from a community-made 21-Day Sui Move Learning Challenge. Its original contributors ([ercan](https://github.com/AliErcanOzgokce), [Serkan Toraman](https://github.com/SerkanToraman), [Emrecan](https://github.com/Tarbetu) and [Ayşenur Aydın](https://github.com/aysenur-aydin)) keep their authorship in the preserved commit history. My own work is the daily solutions committed in March 2026.
+
 ## Stellar
 
 | Project | Description |
